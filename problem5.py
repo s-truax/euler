@@ -77,4 +77,11 @@ def bf_solution(n):
        up to n."""
     positive_ints = count(1)
     return first_true(lambda i: sequentially_divisible(i, n), positive_ints)
-    
+
+"""
+TODO:
+1. [ ] Read up on prime factorization algorithms.
+2. [ ] Read about the complexity of multiplication, division, addition.
+3. [ ] Read about primality testing.
+4. [ ] Prove that this solution is correct?
+"""
