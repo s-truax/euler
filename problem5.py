@@ -14,8 +14,31 @@ def largest_factor(n):
     smallest = first_true(lambda i: n % i == 0, range(2, stop), 1)
     return n // smallest
 
+def is_prime(n):
+    return largest_factor(n) == n
+
+def add_dictionaries(d1, d2):
+    """Make a new {Any -> int} dictionary using the union of the keys from
+       d1 and d2 and summing the values for identical keys.
+
+    >>> a = {'one': 1, 'two': 2, 'three': 3}
+    >>> b = {'one': 1, 'two': 20, 'ten': 10}
+    >>> add_dictionaries(a, b)
+    {'one': 2, 'two': 22, 'three': 3, 'ten': 10}
+    """
+    keys_union = d1.keys() | d2.keys()
+    return {k: d1.get(k, 0) + d2.get(k, 0) for k in keys_union}
+
 def prime_factorize(n):
     """Find the prime factorization of N."""
+    if is_prime(n):
+        return {n: 1}
+    one_factor = largest_factor(n)
+    left_factors = prime_factorize(n // one_factor)
+    right_factors = prime_factorize(one_factor)
+    return add_dictionaries(left_factors, right_factors)
+
+def solution_helper(n):
     return
 
 def sequentially_divisible(m, n):
