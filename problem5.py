@@ -84,4 +84,6 @@ TODO:
 2. [ ] Read about the complexity of multiplication, division, addition.
 3. [ ] Read about primality testing.
 4. [ ] Prove that this solution is correct?
+5. [ ] Write a general `union_dicts` function.
+6. [ ] Memoize functions?
 """
