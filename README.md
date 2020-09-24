@@ -14,5 +14,5 @@ instruction.
 > Problems 1 to 100 provide a wealth of helpful introductory teaching material and if you are
 > able to respect our requirements, then we give permission for them to be discussed elsewhere.
 
-See the [Project Euler homepage](projecteuler.net) for more info.
+See the [Project Euler about page](projecteuler.net/about) for more info.
 
