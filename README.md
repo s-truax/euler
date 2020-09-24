@@ -8,7 +8,11 @@ my solutions.
 Project Euler does allow the sharing of solutions, so long as the solutions are intended for
 instruction.
 
-> Note: The rule about sharing solutions outside of Project Euler does not apply to the first 100 problems, as long as any discussion clearly aims to instruct methods, not just provide answers, and does not directly threaten to undermine the enjoyment of solving later problems. Problems 1 to 100 provide a wealth of helpful introductory teaching material and if you are able to respect our requirements, then we give permission for them to be discussed elsewhere.
+> Note: The rule about sharing solutions outside of Project Euler does not apply to the first
+> 100 problems, as long as any discussion clearly aims to instruct methods, not just provide answers,
+> and does not directly threaten to undermine the enjoyment of solving later problems.
+> Problems 1 to 100 provide a wealth of helpful introductory teaching material and if you are
+> able to respect our requirements, then we give permission for them to be discussed elsewhere.
 
 See the [Project Euler homepage](projecteuler.net) for more info.
 
