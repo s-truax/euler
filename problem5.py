@@ -3,8 +3,13 @@ from itertools import count
 from operator import mul
 
 def first_true(pred, iterable, default=None):
-    """Reference:
-         https://docs.python.org/3/library/itertools.html#itertools-recipes"""
+    """Get the first element in an iterable that satisfies a predicate.
+
+    If no element satisfies the predicate, return default.
+    
+    Reference:
+         https://docs.python.org/3/library/itertools.html#itertools-recipes
+    """
     return next(filter(pred, iterable), default)
 
 def largest_factor(n):
@@ -21,7 +26,7 @@ def is_prime(n):
 
 def add_dictionaries(d1, d2):
     """Make a new {Any -> int} dictionary using the union of the keys from
-       d1 and d2 and summing the values for identical keys.
+       d1 and d2 and summing the values corresponding to identical keys.
 
     >>> a = {'one': 1, 'two': 2, 'three': 3}
     >>> b = {'one': 1, 'two': 20, 'ten': 10}
@@ -44,7 +49,18 @@ def maximize_dictionaries(d1, d2):
     return {k: max(d1.get(k, 0), d2.get(k, 0)) for k in keys_union}
 
 def prime_factorize(n):
-    """Find the prime factorization of N."""
+    """Find the prime factorization of N.
+
+    The prime factorization of a number N is represented as an {int -> int}
+    dictionary, where the keys are prime numbers in the factorization of N
+    and the value assoicated with each key is the power for that prime in
+    the factorization of N.
+
+    >>> prime_factorize(18)
+    {1: 1, 2: 1, 3:2}
+    >>> prime factorize(5)
+    {5: 1}
+    """
     if is_prime(n):
         return {n: 1}
     one_factor = largest_factor(n)
@@ -74,7 +90,10 @@ def sequentially_divisible(m, n):
 
 def bf_solution(n):
     """Find the smallest integer divisible by all positive integers
-       up to n."""
+       up to n.
+
+    Brute-force solution.
+    """
     positive_ints = count(1)
     return first_true(lambda i: sequentially_divisible(i, n), positive_ints)
 
