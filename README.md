@@ -1,5 +1,9 @@
 # My solutions to Project Euler 1-100
 
+TODO:
+1. [ ] Translate Python solutions to Haskell.
+2. [ ] Make a github pages with these solutions?
+
 My intention for this repo is to record my solutions and make note of
 what I learned in the process of solving each problem, with the hope that I
 will be able to refer to this repo in the future or that others can learn from
