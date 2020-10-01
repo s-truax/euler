@@ -10,15 +10,7 @@ filterSieve n = let
     sift []            = []
     sift (p:xs)        =
         let sifted = [m | m <- xs, p `doesNotDivide` m]
-        in if 2 * p >= n 
-            then [p]
-                else p : sift sifted
+        in p : sift sifted
     in sift [2..n]
 
-{-|
-  Solution to Project Euler question 7 that uses the Sieve of Eratosthenes
-  implemented by list comprehension / filtering.
--}
-filterSolution :: Int -> Int
-filterSolution = head . reverse . filterSieve
-
+-- Is there any way to add the square optimization to the above?
