@@ -10,4 +10,4 @@ solution n = sum [k | k <- [1..n],  isMultiple k 3 || isMultiple k 5]
 
 main = do
     args <- getArgs
-    print $ solution $ read $ head args
+    print .  solution $ read . head $  args
