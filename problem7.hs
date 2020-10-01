@@ -15,3 +15,10 @@ filterSieve n = let
                 else p : sift sifted
     in sift [2..n]
 
+{-|
+  Solution to Project Euler question 7 that uses the Sieve of Eratosthenes
+  implemented by list comprehension / filtering.
+-}
+filterSolution :: Int -> Int
+filterSolution = head . reverse . filterSieve
+
