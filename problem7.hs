@@ -14,3 +14,14 @@ filterSieve n = let
     in sift [2..n]
 
 -- Is there any way to add the square optimization to the above?
+
+-- |Trial-division prime-checking function.
+isPrimeTD :: Int -> Bool
+isPrimeTD n
+    | n <= 1    = False
+    | otherwise = and [m `doesNotDivide` n | m <- [2..(n-1)], m^2 < n]
+    where doesNotDivide a b = (b `mod` a) /= 0
+
+-- |Brute-force solution for calculating the Nth prime.
+bruteForceSolution :: Int -> Int
+bruteForceSolution n = [m | m <- [2..], isPrimeTD m] !! (n - 1)
