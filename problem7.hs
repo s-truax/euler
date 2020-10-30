@@ -1,5 +1,3 @@
-import Data.IntSet
-
 -- Possibly inefficient, tried to implement it on my own before importing.
 deleteFirstsBy :: (a -> a -> Bool) -> [a] -> [a] -> [a]
 deleteFirstsBy _ xs [] = xs
@@ -12,28 +10,19 @@ deleteFirstsBy eq (x:xs) (y:ys) =
 listDiff :: Eq a => [a] -> [a] -> [a]
 listDiff = deleteFirstsBy (==)
 
--- BROKEN: This is quite hard to do with a list, since you need to figure out how to
--- keep updating p.
-finiteSieveHelper :: Integer -> [Integer] -> Integer -> [Integer]
-finiteSieveHelper p acc n =
-    if n < p
-      then acc
-        else
-           let
-               newAcc = tail $ listDiff acc [p^2, p^2 + p..n]
-               nextP  = head newAcc in
-               finiteSieveHelper nextP newAcc n
 
-
-finiteSieve' :: Int -> [Int] -> [Int] -> [Int]
-finiteSieve' n acc [] = acc
-finiteSieve' n acc (x:xs) = let
+finiteSieve' :: [Int] -> [Int] -> Int -> [Int]
+finiteSieve' primes []     n  = primes
+finiteSieve' primes (x:xs) n = let
     p = x
     sifted = listDiff xs [p^2, p^2 + p..n] in
-      if p^2 > n
-        then acc ++ xs
+    if p^2 > n
+        then (reverse primes) ++ xs
           else
-            finiteSieve' n (p : acc) sifted
+            finiteSieve' (p : primes) sifted n
+
+finiteSieve :: Int -> [Int]
+finiteSieve n = finiteSieve' [] [2, 3..n] n
 
 {-|
   An implementation of the Sieve of Eratosthenes that uses
