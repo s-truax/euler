@@ -1,3 +1,5 @@
+import System.Environment
+
 -- Possibly inefficient, tried to implement it on my own before importing.
 deleteFirstsBy :: (a -> a -> Bool) -> [a] -> [a] -> [a]
 deleteFirstsBy _ xs [] = xs
@@ -11,6 +13,12 @@ listDiff :: Eq a => [a] -> [a] -> [a]
 listDiff = deleteFirstsBy (==)
 
 
+gcd' :: Int -> Int -> Int
+gcd' a 0 = a
+gcd' 0 b = b
+gcd' a b = gcd b (a `mod` b)
+
+
 finiteSieve' :: [Int] -> [Int] -> Int -> [Int]
 finiteSieve' primes []     n  = primes
 finiteSieve' primes (x:xs) n = let
@@ -21,6 +29,8 @@ finiteSieve' primes (x:xs) n = let
           else
             finiteSieve' (p : primes) sifted n
 
+
+-- this... is wrong, I think.
 finiteSieve :: Int -> [Int]
 finiteSieve n = finiteSieve' [] [2, 3..n] n
 
@@ -57,4 +67,6 @@ isPrimeTD n
 bruteForceSolution :: Int -> Int
 bruteForceSolution n = [m | m <- [2..], isPrimeTD m] !! (n - 1)
 
-
+main = do
+    args <- System.Environment.getArgs
+    print $ finiteSieve $ read $ head args
